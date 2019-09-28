@@ -5,9 +5,10 @@ def stop_word(line)
         File.open('stop_words.txt').each do |stp_word|
             puts word.to_s
             puts stp_word.to_s
-            puts word.to_s == stp_word.to_s
+            puts word.to_s.strip == stp_word.to_s.strip
+            puts
         end
     end
 end
 
-stop_word("a about is of of of a yourselves")
+stop_word("a aren't is of of of a yourselves")
