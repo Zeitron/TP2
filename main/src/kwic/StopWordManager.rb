@@ -1,14 +1,21 @@
+## Transforma uma linha do file 'papers.txt' em um array 
+## das palavras do título sem as stop-words
+
 def stop_word(line)
     word_list = []
     word_list = line.split(' ')
-    word_list.each do |word|
+    word_list.each_with_index do |word, idx|
         File.open('stop_words.txt').each do |stp_word|
-            puts word.to_s
-            puts stp_word.to_s
-            puts word.to_s.strip == stp_word.to_s.strip
-            puts
+
+            if word.to_s.strip == stp_word.to_s.strip
+                word_list.delete_at(idx.to_i)
+            end
+
         end
     end
+    return word_list
 end
 
-stop_word("a aren't is of of of a yourselves")
+array =[]
+array = stop_word("introduction to computer science")
+puts array
