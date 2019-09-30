@@ -5,9 +5,9 @@ def stop_word(line)
     word_list = []
     word_list = line.split(' ')
     word_list.each_with_index do |word, idx|
-        File.open('stop_words.txt').each do |stp_word|
+        File.open('../resources/stop_words.txt').each do |stp_word|
 
-            if word.to_s.strip == stp_word.to_s.strip
+            if word.to_s.strip.downcase == stp_word.to_s.strip
                 word_list.delete_at(idx.to_i)
             end
 
@@ -17,5 +17,5 @@ def stop_word(line)
 end
 
 array =[]
-array = stop_word("introduction to computer science")
+array = stop_word("An introduction to computer science")
 puts array
