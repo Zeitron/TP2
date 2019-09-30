@@ -18,8 +18,9 @@ end
 list = ["introduction", "computer", "science"]
 permutado = []
 permutado = cyclic_permutation(list)
+##print permutado
 
 # Exemplo 2
 shifted = []
 shifted = circular_shift(list)
-print shifted
+##print shifted

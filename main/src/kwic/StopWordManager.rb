@@ -18,4 +18,4 @@ end
 
 array =[]
 array = stop_word("An introduction to computer science")
-puts array
+##puts array

@@ -9,4 +9,4 @@ end
 
 linha = []
 linha = storage()
-puts linha
+##puts linha
