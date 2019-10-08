@@ -1,16 +1,15 @@
-load 'WordShift.rb'
-
 ## Recebe a lista gerada em WordShift e 
 ## a retorna alfabeticamente ordenada
 
-def alphabetize(titles)
-    return titles.sort
+require_relative 'WordShift.rb'
+
+module Index
+    include WordShift
+
+    def alphabetize(title)
+        permuted = circular_shift(title)
+        return permuted.sort
+    end
+    
 end
-
-permuted =[]
-list = ["introduction", "computer", "science"]
-permuted = circular_shift(list)
-
-permuted = alphabetize(permuted)
-##print permuted
 
