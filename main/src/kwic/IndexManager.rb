@@ -7,7 +7,7 @@ module Index
     include WordShift
 
     def Index.alphabetize(title)
-        permuted = circular_shift(title)
+        permuted = WordShift.circular_shift(title)
         return permuted.sort
     end
     

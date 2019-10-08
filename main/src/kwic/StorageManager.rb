@@ -6,6 +6,7 @@ module Storage
     def Storage.storage()
         titles =[]
         File.open('../resources/papers.txt').each { |line| titles.push(line.to_s.strip) }
+        #print titles
         return titles
     end
         
