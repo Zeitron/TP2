@@ -6,7 +6,7 @@ require_relative 'WordShift.rb'
 module Index
     include WordShift
 
-    def alphabetize(title)
+    def Index.alphabetize(title)
         permuted = circular_shift(title)
         return permuted.sort
     end

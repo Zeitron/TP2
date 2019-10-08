@@ -3,7 +3,7 @@
 
 module StopWord
 
-    def stop_word(line)
+    def StopWord.stop_word(line)
         word_list = []
         word_list = line.split(' ')
         word_list.each_with_index do |word, idx|

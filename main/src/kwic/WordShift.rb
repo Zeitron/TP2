@@ -3,13 +3,13 @@
 
 module WordShift
 
-    def cyclic_permutation(list)
+    def WordShift.cyclic_permutation(list)
         return list.permutation(list.length.to_i).to_a
     end
 
 
     ## Retorna 1 permutação, cada uma começando com uma keyword diferente
-    def circular_shift(list)
+    def WordShift.circular_shift(list)
         support = []
         size = list.length
         size.times { |idx| support.push( list.rotate(idx) )  }
