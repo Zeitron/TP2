@@ -1,21 +1,43 @@
-## Transforma uma linha do file 'papers.txt' em um array 
-## das palavras do título sem as stop-words
+## Module to handle stop words
 
 module StopWord
 
-    def StopWord.stop_word(line)
+    def StopWord.getStopWords(filename)
         word_list = []
-        word_list = line.split(' ')
-        word_list.each_with_index do |word, idx|
-            File.open('../resources/stop_words.txt').each do |stp_word|
-    
-                if word.to_s.strip.downcase == stp_word.to_s.strip
-                    word_list.delete_at(idx.to_i)
-                end
-    
-            end
+        File.open('../resources/'+filename.to_s+'.txt').each do |stp_word|
+            word_list.push(stp_word.to_s.strip.downcase)
         end
         return word_list
     end
+
+    def StopWord.generateHash(line)
+        raw_hash = []
+        raw_line = Array.new(line.chomp.split(' '))
+        raw_line.each do |word|
+            raw_hash << [word.downcase, 0]
+        end
+        return raw_hash 
+    end
+
+    def StopWord.markStopWords(hash, word_list)
+        hash.each do |pair|
+            word_list.each do |stp_word|
+                if pair.first == stp_word
+                    pair[1] = 1
+                end
+            end
+        end
+        return hash
+    end
     
 end
+
+filename = "stop_words"
+list = []
+list = StopWord.getStopWords(filename)
+
+line = "Incremental methods in programming"
+hash = Array.new(StopWord.generateHash(line))
+
+markedhash = StopWord.markStopWords(hash, list)
+

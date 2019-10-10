@@ -3,13 +3,11 @@
 
 module Storage
 
-    def Storage.storage()
+    def Storage.storage(filename)
         titles =[]
-        File.open('../resources/papers.txt').each { |line| titles.push(line.to_s.strip) }
-        #print titles
+        File.open('../resources/'+ filename +'.txt').each { |line| titles.push(line.to_s.strip) }
         return titles
     end
         
 end
 
-Storage.storage()
