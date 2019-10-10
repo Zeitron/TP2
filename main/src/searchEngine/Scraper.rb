@@ -1,7 +1,11 @@
 require 'nokogiri'
 require 'httparty'
 
+require_relative 'StorageManager.rb'
+
     class Scraper
+
+        include File_io
 
         def initialize(url)
             @url = url
@@ -15,17 +19,15 @@ require 'httparty'
         def filter_html
             raw_stopwords = @page.text             # define stopwords como a parte de texto da página
             @stopwords = raw_stopwords.split("\n") # parte o texto em palavras a cada '\n'
+            return @stopwords
         end
 
         def display
-            puts(@stopwords)                       # coloca na tela as stopwords
+            puts(File_io.read('stopwords'))                       # coloca na tela as stopwords
+        end
+
+        def write(stopwords_file)
+            File_io.write(stopwords_file,@stopwords)
         end
     end
 
-stopword_list = Scraper.new("https://raw.githubusercontent.com/Zeitron/Stopwords/master/Brazilian")
-
-stopword_list.scrap_page        # coleta os dados da pagina e indexa
-
-stopword_list.filter_html       # filtra as palavras
-
-stopword_list.display           # mostra a lista de palavras
