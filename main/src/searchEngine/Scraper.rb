@@ -22,8 +22,8 @@ require_relative 'StorageManager.rb'
             return @stopwords
         end
 
-        def display
-            puts(File_io.read('stopwords'))                       # coloca na tela as stopwords
+        def display(idioma)
+            puts(File_io.read(''+idioma+'_stopwords'))        # coloca na tela as stopwords
         end
 
         def write(stopwords_file)
