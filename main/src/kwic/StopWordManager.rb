@@ -12,7 +12,7 @@ module StopWord
 
     def StopWord.generateHash(line)
         raw_hash = []
-        raw_line = Array.new(line.chomp.split(' '))
+        raw_line = Array.new(line.split(' '))
         raw_line.each do |word|
             raw_hash << [word.downcase, 0]
         end

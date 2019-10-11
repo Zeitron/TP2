@@ -8,14 +8,26 @@ class KWIC
     include Storage
     include Index
 
-    @@raw_list = Storage.storage()
+
+    papers = 'papers'
+    stop_words = 'stop_words'
+
+    @@raw_list = Storage.storage(papers)
+    @@raw_stpWords = StopWord.getStopWords(stop_words)
 
     def kapuff()
-        @@updtd_titles.each do |title|
-            @@indexed_list.push(Index.alphabetize(title))
-        end
+        list = ''
+        list = @@raw_list
 
-        print @@indexed_list
+        raw_hash = {}
+        raw_hash = StopWord.generateHash(list[0])
+
+        stop_words = []
+        stop_words = @@raw_stpWords
+        hash = {}
+        hash = StopWord.markStopWords(raw_hash, stop_words)
+        print hash
+        
     end
 
 end

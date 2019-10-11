@@ -18,9 +18,9 @@ module Index
         marked_hash.map do |pair,stp_word|
             i = 0
             marked_hash.length.times do
-                puts pair
-                puts marked_hash[(i.to_i)][0]
-                puts
+                #puts pair
+                #puts marked_hash[(i.to_i)][0]
+                #puts
                 i = i + 1
             end
         end
@@ -33,7 +33,7 @@ filename = "stop_words"
 list = []
 list = StopWord.getStopWords(filename)
 
-line = "Incremental methods in programming"
+line = "methods incremental in programming"
 hash = Array.new(StopWord.generateHash(line))
 
 markedhash = StopWord.markStopWords(hash, list)

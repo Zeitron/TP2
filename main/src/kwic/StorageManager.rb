@@ -5,7 +5,7 @@ module Storage
 
     def Storage.storage(filename)
         titles =[]
-        File.open('../resources/'+ filename +'.txt').each { |line| titles.push(line.to_s.strip) }
+        File.open('../resources/' + filename.to_s + '.txt').each { |line| titles.push(line.to_s.strip) }
         return titles
     end
         
