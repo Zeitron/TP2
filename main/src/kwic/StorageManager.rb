@@ -6,7 +6,9 @@ module File_io
 
     def File_io.read(read_file)
         titles =[]
-        File.open('../resources/'+read_file+'.txt').each { |line| titles.push(line.to_s.strip) }
+        File.open('../resources/'+read_file+'.txt').each { |line| titles << (line.to_s.strip.split(" ")) }
         return titles
     end
 end
+
+print File_io.read('stopwords')
