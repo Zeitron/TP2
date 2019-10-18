@@ -32,12 +32,3 @@ module StopWord
     
 end
 
-filename = "stop_words"
-list = []
-list = StopWord.getStopWords(filename)
-
-line = "Incremental methods in programming"
-hash = Array.new(StopWord.generateHash(line))
-
-markedhash = StopWord.markStopWords(hash, list)
-

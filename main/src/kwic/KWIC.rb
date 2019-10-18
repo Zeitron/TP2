@@ -15,5 +15,4 @@ stopword_list.filter_html       # filtra as palavras
 
 stopword_list.write(ARGV[0])    # escreve no txt a nova lista de stop words
 
-stopword_list.display(ARGV[0])           # mostra a lista de palavras
-
+stopword_list.display(ARGV[0])  # mostra a lista de palavras
